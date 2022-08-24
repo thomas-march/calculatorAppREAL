@@ -8,22 +8,22 @@
 
     <EditText
         android:id="@+id/num1ET"
-        android:layout_width="173dp"
-        android:layout_height="50dp"
+        android:layout_width="195dp"
+        android:layout_height="55dp"
         android:ems="10"
         android:hint="Enter the 1st number!"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.003" />
+        app:layout_constraintVertical_bias="0.005" />
 
     <EditText
         android:id="@+id/num2ET"
-        android:layout_width="197dp"
-        android:layout_height="47dp"
+        android:layout_width="195dp"
+        android:layout_height="55dp"
         android:ems="10"
         android:hint="Enter the 2nd number!"
         android:inputType="textPersonName"
@@ -39,13 +39,14 @@
         android:layout_width="239dp"
         android:layout_height="157dp"
         android:text=""
+        android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.901" />
+        app:layout_constraintVertical_bias="0.899" />
 
     <Button
         android:id="@+id/findSum"
@@ -152,9 +153,18 @@
         android:text="Instructions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close Keyboard"
+        android:onClick="closeKeyboard"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="69dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

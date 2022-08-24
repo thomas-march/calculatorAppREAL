@@ -1,12 +1,18 @@
 package com.example.calculatorapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +20,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+
+        setContentView(R.layout.activity_main);
+
+        textViewResult
+                = findViewById(
+                R.id.num1ET);
+        editTextInput
+                = findViewById(
+                R.id.num2ET);
     }
+
 
     /*
     this method will be called when we click on the button.
@@ -47,6 +64,65 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /* hide keyboard method
+        source: https://www.geeksforgeeks.org/how-to-programmatically-hide-android-soft-keyboard/
+     */
+
+    private TextView textViewResult;
+    private EditText editTextInput;
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void setText(View v)
+    {
+        String newText
+                = editTextInput
+                .getText()
+                .toString();
+        textViewResult.setText(newText);
+
+        closeKeyboard();
+        editTextInput.setText("");
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void closeKeyboard(View view)
+    {
+        // this will give us the view
+        // which is currently focus
+        // in this layout
+        view = this.getCurrentFocus();
+
+        // if nothing is currently
+        // focus then this will protect
+        // the app from crash
+        if (view != null) {
+
+            // now assign the system
+            // service to InputMethodManager
+            InputMethodManager manager
+                    = (InputMethodManager)
+                    getSystemService(
+                            Context.INPUT_METHOD_SERVICE);
+            manager
+                    .hideSoftInputFromWindow(
+                            view.getWindowToken(), 0);
+        }
+    }
+
+    /*
+        Truncating decimals to 3 decimal places method:
+            import java.text.DecimalFormat;
+            public class DecimalFormatting {
+            public static void main(String args[]){
+            double d = 9.4568982982989;
+            String pattern = "#.###";
+            DecimalFormat decimalFormat =  new DecimalFormat(pattern);
+            String formattedDouble = decimalFormat.format(d);
+            System.out.println("Formatted double d = "+formattedDouble);
+        Source: https://www.delftstack.com/howto/java/java-truncate-double/
+
+     */
+
     public void findSum(View view) {
         EditText number1ET = findViewById(R.id.num1ET);
         EditText number2ET = findViewById(R.id.num2ET);
@@ -55,8 +131,10 @@ public class MainActivity extends AppCompatActivity {
         double num1 = Double.parseDouble((number1ET.getText().toString()));
         double num2 = Double.parseDouble((number2ET.getText().toString()));
         double sum = num1 + num2;
-
-        numberSumTV.setText("" + sum);
+        String pattern = "#.###";
+        DecimalFormat decimalFormat =  new DecimalFormat(pattern);
+        String sumFinal = decimalFormat.format(sum);
+        numberSumTV.setText("" + sumFinal);
     }
 
     public void findProd(View view) {
@@ -67,8 +145,10 @@ public class MainActivity extends AppCompatActivity {
         double num1 = Double.parseDouble((number1ET.getText().toString()));
         double num2 = Double.parseDouble((number2ET.getText().toString()));
         double prod = num1 * num2;
-
-        numberSumTV.setText("" + prod);
+        String pattern = "#.###";
+        DecimalFormat decimalFormat =  new DecimalFormat(pattern);
+        String prodFinal = decimalFormat.format(prod);
+        numberSumTV.setText("" + prodFinal);
     }
 
     public void findQuot(View view) {
@@ -79,8 +159,10 @@ public class MainActivity extends AppCompatActivity {
         double num1 = Double.parseDouble((number1ET.getText().toString()));
         double num2 = Double.parseDouble((number2ET.getText().toString()));
         double quot = num1 / num2;
-
-        numberSumTV.setText("" + quot);
+        String pattern = "#.###";
+        DecimalFormat decimalFormat =  new DecimalFormat(pattern);
+        String quotFinal = decimalFormat.format(quot);
+        numberSumTV.setText("" + quotFinal);
     }
 
     public void findDiff(View view) {
@@ -91,8 +173,10 @@ public class MainActivity extends AppCompatActivity {
         double num1 = Double.parseDouble((number1ET.getText().toString()));
         double num2 = Double.parseDouble((number2ET.getText().toString()));
         double diff = num1 - num2;
-
-        numberSumTV.setText("" + diff);
+        String pattern = "#.###";
+        DecimalFormat decimalFormat =  new DecimalFormat(pattern);
+        String diffFinal = decimalFormat.format(diff);
+        numberSumTV.setText("" + diffFinal);
     }
 
     /*
@@ -107,7 +191,10 @@ public class MainActivity extends AppCompatActivity {
         double num1 = Double.parseDouble((number1ET.getText().toString()));
         double num2 = Double.parseDouble((number2ET.getText().toString()));
         double exp = (double) Math.pow(num1,num2);
-        numberSumTV.setText("" + exp);
+        String pattern = "#.###";
+        DecimalFormat decimalFormat =  new DecimalFormat(pattern);
+        String expFinal = decimalFormat.format(exp);
+        numberSumTV.setText("" + expFinal);
     }
     /*
     Math.log(number) method
@@ -121,8 +208,10 @@ public class MainActivity extends AppCompatActivity {
         double num1 = Double.parseDouble((number1ET.getText().toString()));
         double num2 = Double.parseDouble((number2ET.getText().toString()));
         double log = (double) ((double) Math.log(num2)/Math.log(num1));
-
-        numberSumTV.setText("" + log);
+        String pattern = "#.###";
+        DecimalFormat decimalFormat =  new DecimalFormat(pattern);
+        String logFinal = decimalFormat.format(log);
+        numberSumTV.setText("" + logFinal);
     }
 
 }
