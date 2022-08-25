@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="pink">#E79FF4</color>
     <color name="light_green">#C7F49F</color>
+    <color name="salmon">#EF8084</color>
+    <color name="creamsicle">#F4D59F</color>
+    <color name="sky">#9FE0F4</color>
+    <color name="lavender">#B59BF1</color>
+    <color name="seafoam">#9BF1CC</color>
+    <color name="hot_pink">#F19BC7</color>
 </resources>
