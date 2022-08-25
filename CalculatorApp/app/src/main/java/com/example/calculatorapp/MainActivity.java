@@ -74,23 +74,16 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void setText(View v)
     {
-        String newText
-                = editTextInput
-                .getText()
-                .toString();
-        textViewResult.setText(newText);
-
         closeKeyboard();
-        editTextInput.setText("");
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    private void closeKeyboard(View view)
+    private void closeKeyboard()
     {
         // this will give us the view
         // which is currently focus
         // in this layout
-        view = this.getCurrentFocus();
+        View view = this.getCurrentFocus();
 
         // if nothing is currently
         // focus then this will protect
@@ -123,7 +116,9 @@ public class MainActivity extends AppCompatActivity {
 
      */
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void findSum(View view) {
+        setText(view);
         EditText number1ET = findViewById(R.id.num1ET);
         EditText number2ET = findViewById(R.id.num2ET);
         TextView numberSumTV = findViewById(R.id.resultTV);
@@ -137,7 +132,9 @@ public class MainActivity extends AppCompatActivity {
         numberSumTV.setText("" + sumFinal);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void findProd(View view) {
+        setText(view);
         EditText number1ET = findViewById(R.id.num1ET);
         EditText number2ET = findViewById(R.id.num2ET);
         TextView numberSumTV = findViewById(R.id.resultTV);
@@ -151,7 +148,9 @@ public class MainActivity extends AppCompatActivity {
         numberSumTV.setText("" + prodFinal);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void findQuot(View view) {
+        setText(view);
         EditText number1ET = findViewById(R.id.num1ET);
         EditText number2ET = findViewById(R.id.num2ET);
         TextView numberSumTV = findViewById(R.id.resultTV);
@@ -165,7 +164,9 @@ public class MainActivity extends AppCompatActivity {
         numberSumTV.setText("" + quotFinal);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void findDiff(View view) {
+        setText(view);
         EditText number1ET = findViewById(R.id.num1ET);
         EditText number2ET = findViewById(R.id.num2ET);
         TextView numberSumTV = findViewById(R.id.resultTV);
@@ -183,7 +184,9 @@ public class MainActivity extends AppCompatActivity {
     Math.pow(base, exponent) method
     Source: https://www.techwalla.com/articles/how-to-do-exponents-in-java
      */
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void findExp(View view) {
+        setText(view);
         EditText number1ET = findViewById(R.id.num1ET);
         EditText number2ET = findViewById(R.id.num2ET);
         TextView numberSumTV = findViewById(R.id.resultTV);
@@ -200,7 +203,9 @@ public class MainActivity extends AppCompatActivity {
     Math.log(number) method
     Source: https://stackoverflow.com/questions/25973731/how-to-calculate-logarithms-in-java
      */
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void findLog(View view) {
+        setText(view);
         EditText number1ET = findViewById(R.id.num1ET);
         EditText number2ET = findViewById(R.id.num2ET);
         TextView numberSumTV = findViewById(R.id.resultTV);
